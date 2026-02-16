@@ -1,18 +1,6 @@
 //12Practical
 public class MCS {
     public static int mcsOn3(int[] X){
-        /*
-        def mcsOn3(X):
-            4 n = len(X)
-            5 maxsofar = 0
-            6 for low in range(n): # [0,n)
-            7 for high in range(low, n): # [low,n)
-            8 sum = 0
-            9 for r in range(low, high): # [low,high)
-            10 sum += X[r]
-            11 if (sum > maxsofar):
-
-         */
         int n = X.length;
         int maxsofar = 0;
         for (int low = 0; low < n; low++){
@@ -26,5 +14,39 @@ public class MCS {
             }
         }
         return maxsofar;
+    }
+
+    public static int mscOn2A( int[] X){
+        /*
+        def mcsOn2A(X):
+           n = len(X)
+           maxsofar = 0
+           for low in range(n):             # [0,n)
+               sum = 0
+               for r in range(low, n):   # [low,n)
+                  sum += X[r]
+                  if (sum > maxsofar):
+                     maxsofar = sum
+           return maxsofar
+         */
+        int n = X.length;
+        int maxsofar = 0;
+        for (int low = 0; low < n; low++){
+            int sum = 0;
+            for (int r = low; r < n; r++){
+                sum += X[r];
+                if (sum > maxsofar)
+                    maxsofar = sum;
+            }
+        }
+        return maxsofar;
+    }
+
+    
+
+    public static void main(String[] args){
+        int[] X = {-5, 46, 89, 21, -9, -30, -100};
+        //O(n^3)
+        System.out.println(mcsOn3(X));
     }
 }
