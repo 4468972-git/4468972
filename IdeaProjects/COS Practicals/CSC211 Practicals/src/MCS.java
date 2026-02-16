@@ -99,6 +99,19 @@ public class MCS {
 
 
     public static void main(String[] args){
+        /*
+        def main():
+            n = 20
+            X = [randint(1,n)*(-1)**randint(2,4) for k in range(n)]
+            countP = 0
+            countM = 0
+            for x in X:
+                if x < 0:
+                    countM +=1
+                else:
+                    countP +=1
+            print(f"{countM = }  {countP = }")
+         */
         int n = 20; //X length
         int[] X = new int[n];
         int negNums = Math.floorDiv(n, 3);
@@ -108,6 +121,16 @@ public class MCS {
             X[i] = r;
         for (int j = negNums+1; j < n; j++)
             X[j] = negative_r;
+
+        int countP = 0;
+        int countM = 0;
+
+        for (int x = 0; x <= n; x++){
+            if (x < 0)
+                countM += 1;
+            countP += 1;
+        }
+        System.out.printf("CountP = %d CountM = %d\n", countP, countM);
 
         System.out.printf("Order n^3 output: %d\n",mcsOn3(X));
         System.out.printf("Order n^2 A output: %d\n", mcsOn2A(X));
