@@ -86,15 +86,26 @@ public class MCS {
                maxSoFar = max(maxSoFar, maxToHere)
             return maxSoFar
          */
+        int n = X.length;
+        int maxSoFar = 0;
+        int maxToHere = 0;
+        for (int i = 1; i < n; i++){
+            maxToHere = Math.max(maxToHere + X[i], 0);
+            maxSoFar = Math.max(maxSoFar, maxToHere);
+        }
+        return maxSoFar;
+
+
     }
 
 
 
     public static void main(String[] args){
+        int n = 20; //X length
         int[] X = {-5, 46, 89, 21, -9, -30, -100};
         System.out.printf("Order n^3 output: %d\n",mcsOn3(X));
         System.out.printf("Order n^2 A output: %d\n", mcsOn2A(X));
         System.out.printf("Order n^2 B output: %d\n", mcsOn2B(X));
-        System.out.print();
+        System.out.printf("Order n output: %d", mcsOn(X));
     }
 }
