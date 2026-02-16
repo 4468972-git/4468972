@@ -1,4 +1,5 @@
 //12Practical
+
 public class MCS {
     public static int mcsOn3(int[] X){
         int n = X.length;
@@ -94,15 +95,20 @@ public class MCS {
             maxSoFar = Math.max(maxSoFar, maxToHere);
         }
         return maxSoFar;
-
-
     }
-
 
 
     public static void main(String[] args){
         int n = 20; //X length
-        int[] X = {-5, 46, 89, 21, -9, -30, -100};
+        int[] X = new int[n];
+        int negNums = Math.floorDiv(n, 3);
+        int r = (int)(Math.random()*n) + 1;
+        int negative_r = (int)(Math.random()*n - 1);
+        for (int i = 0; i < n-negNums; i++)
+            X[i] = r;
+        for (int j = negNums+1; j < n; j++)
+            X[j] = negative_r;
+
         System.out.printf("Order n^3 output: %d\n",mcsOn3(X));
         System.out.printf("Order n^2 A output: %d\n", mcsOn2A(X));
         System.out.printf("Order n^2 B output: %d\n", mcsOn2B(X));
