@@ -1,13 +1,15 @@
 import java.lang.Math; import java.io.FileReader; import java.util.Scanner; import java.text.DecimalFormat;
 
 public class timeMethod {
+    public static int[] NodeKeys = new int[30];
     public static void filereading(String filename)throws Exception {
         Scanner sc = new Scanner(new FileReader(filename));
-
+        int i = 0;
         while (sc.hasNext()) {
             if (sc.hasNextInt()) {
                 int number = sc.nextInt();
-
+                NodeKeys[i] = number;
+                i++;
             } else {
                 sc.next();
             }
