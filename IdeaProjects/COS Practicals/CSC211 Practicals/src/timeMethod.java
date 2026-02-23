@@ -1,6 +1,19 @@
-import java.lang.Math; import java.io.; import java.text.;
+import java.lang.Math; import java.io.FileReader; import java.util.Scanner; import java.text.DecimalFormat;
 
 public class timeMethod {
+    public static void filereading(String filename)throws Exception {
+        Scanner sc = new Scanner(new FileReader(filename));
+
+        while (sc.hasNext()) {
+            if (sc.hasNextInt()) {
+                int number = sc.nextInt();
+
+            } else {
+                sc.next();
+            }
+        }
+    }
+
     public static int linearsearch(int[] X, int target){
         int i = 0;
         while (i < X.length){
@@ -22,19 +35,6 @@ public class timeMethod {
             return binarysearch(X, target, low, mid - 1);}
         return binarysearch(X, target,mid+1, high);
     }
-    public  void filereading(String filename){
-        try{
-            BufferedReader reader = new BufferedReader( new FileReader(filename));
-            String line;
-            while ((line = reader.readLine()) != null){
-                System.out.println(line);
-            }
-
-        }catch (IOException e){
-            System.out.println("The following error occurred: "+e.getMessage());
-        }
-
-    }
 
 
     public static int N = 30;
@@ -55,8 +55,11 @@ public class timeMethod {
             start = System.currentTimeMillis();
 
             // call the procedures to time here:
-            linearsearch (...);
-            binarysearch (...);
+            for (int i = 0; i < 30; i++)
+                linearsearch (NodeKeys, (int)(Math.random() * 32654 + 1));
+
+            for (int i = 0; i < 30; i++)
+                binarysearch (NodeKeys, (int)(Math.random() * 32654 + 1),0, NodeKeys.length -1);
             // Figure out how to alter this guideline here,
 
             finish = System.currentTimeMillis();
