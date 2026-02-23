@@ -1,13 +1,44 @@
-import java.lang.Math; import java.io.∗; import java.text.;
+import java.lang.Math; import java.io.; import java.text.;
 
 public class timeMethod {
-    static void oneofyourMethods(int n,) {
-        // The declarations and body of your method / s
-        // The final statement of this code.} }
+    public static int linearsearch(int[] X, int target){
+        int i = 0;
+        while (i < X.length){
+            if (X[i] == target)
+                return i;
+            i++;
+        }
+        return -1;
+    }
+
+    //Recursive binary search
+    public static int binarysearch(int[] X, int target, int low, int high){ //low and high represent index of the very first and last element in the current search range
+        if (low > high)
+            return -1;
+        int mid = Math.floorDiv((low + high), 2);
+        if (X[mid] == target)
+            return mid;
+        else if (target < X[mid]){
+            return binarysearch(X, target, low, mid - 1);}
+        return binarysearch(X, target,mid+1, high);
+    }
+    public  void filereading(String filename){
+        try{
+            BufferedReader reader = new BufferedReader( new FileReader(filename));
+            String line;
+            while ((line = reader.readLine()) != null){
+                System.out.println(line);
+            }
+
+        }catch (IOException e){
+            System.out.println("The following error occurred: "+e.getMessage());
+        }
+
+    }
 
 
-    public static int N = ....;
-    public static void main(String args[]){
+    public static int N = 30;
+    public static void main(String[] args){
 
         DecimalFormat twoD = new DecimalFormat("0.00");
         DecimalFormat fourD = new DecimalFormat("0.0000");
